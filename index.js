@@ -14,7 +14,7 @@ app.use(express.json());
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 const DB_USER = process.env.DB_USER;
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_NAME = process.env.DB_NAME
@@ -26,7 +26,7 @@ app.use("/api/posts", postsPage);
 const startServer = async () => {
     try {
         await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@cluster0.v2ea6.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`);
-        app.listen( PORT, () => {
+        app.listen( PORT || 3001, () => {
             console.log(`server start port ${PORT}`);
         })
     } catch (error) {
