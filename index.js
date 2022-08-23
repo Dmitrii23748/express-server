@@ -25,8 +25,8 @@ app.use("/api/posts", postsPage);
 
 const startServer = async () => {
     try {
-        await mongoose.connect(`mongodb+srv://mern:mern123@cluster0.v2ea6.mongodb.net/mern-js?retryWrites=true&w=majority`);
-        app.listen( 4444, () => {
+        await mongoose.connect(process.env.MONGO_DB);
+        app.listen( process.env.PORT || 4444, () => {
             console.log(`server start`);
         })
     } catch (error) {
