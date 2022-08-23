@@ -23,6 +23,7 @@ app.use('/api/auth', authRegistr);
 
 app.use("/api/posts", postsPage);
 
+// mongodb+srv://mern:mern123@cluster0.v2ea6.mongodb.net/mern-js?retryWrites=true&w=majority
 const startServer = async () => {
     try {
         await mongoose.connect(process.env.MONGO_DB);
